@@ -24,7 +24,7 @@ public class MainMenu
 			}
 			else if (option.equalsIgnoreCase("new game"))
 			{
-				// ***I have been still working on this section***
+				// ***I have still been working on this section***
 				
 				//Game newGame = new Game();
 				crazyEights crazyEight = new crazyEights();
