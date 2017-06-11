@@ -1,61 +1,79 @@
 import java.util.ArrayList;
 import java.util.Collections;
-public class Deck {
-	private ArrayList <Card>Origincards;
-	private ArrayList <Card>Used;
+public class Deck 
+{
+	private ArrayList <Card> Origincards;
+	private ArrayList <Card> Used;
 	private Card topUsed;
-//	private ArrayList User; (in other class not deck)
-//	private ArrayList AI;
 		
-	public Deck() {
-		Origincards = new ArrayList<>(); //cards for original deck players are picking from
+	public Deck() 
+	{
+		Origincards = new ArrayList<>(); 
+		//cards for original deck players are picking from
 		Used = new ArrayList<>();
 
-		for (Suit c : Suit.values()) {  //looping through the card value & card to make a new card and add it to origin card 
-			for (CardValue i : CardValue.values()) {
+		for (Suit c : Suit.values()) 
+		{  
+			//looping through the card value & card to make a new card and add it to origin card 
+			for (CardValue i : CardValue.values()) 
+			{
 				Card a = new Card(c, i);
-				Origincards.add(a); // create new card c, is a parameter & int
+				// create new card c, is a parameter & int
+				Origincards.add(a); 
 			}
 		}
 		shuffle();
 	}
-	
-	public Card DrawValueofCard() {   //takes the first value of the card and removes it from the deck and returns it
+	//takes the first value of the card and removes it from the deck and returns it
+	public Card DrawValueofCard() 
+	{   
 		if(Origincards.isEmpty())
 			startOver();
 		return Origincards.remove(0);
 	}
-	public void discard(Card c){
+	public void discard(Card c)
+	{
 		Used.add(c);
 		topUsed = c;
 	}
 
-	public Card getTopUsed() {
+	public Card getTopUsed() 
+	{
 		return topUsed;
 	}
 
-	public void setTopUsed(Card topUsed) {
+	public void setTopUsed(Card topUsed) 
+	{
 		this.topUsed = topUsed;
 	}
-	public void shuffle() {  //shuffles the deck
+	//shuffles the deck
+	public void shuffle() 
+	{  
 		Collections.shuffle(Origincards);
 	}
-
-	public void startOver() {
+	public void startOver() 
+	{
 		topUsed = Used.remove(Used.size()-1);
 		Origincards.addAll(Used);
 		Used.clear();
 		Used.add(topUsed);
 		shuffle();
 	}
-	public void discard(){
+	public void putFirstCard()
+	{
+		while(Origincards.get(0).getValue().equals("8"))
+		{
+			shuffle();
+		}
 	    Used.add(DrawValueofCard());
+		topUsed = Used.get(0);
 	}
-	public ArrayList<Card> getOrigincards() {
+	public ArrayList<Card> getOrigincards() 
+	{
 		return Origincards;
 	}
-
-	public ArrayList<Card> getUsed() {
+	public ArrayList<Card> getUsed() 
+	{
 		return Used;
 	}
 }
