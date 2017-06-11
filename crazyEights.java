@@ -1,4 +1,3 @@
-/package crazyeights.mainapp;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class crazyEights extends Game
@@ -141,7 +140,7 @@ public class crazyEights extends Game
     	return h.isEmpty();
     }
     
-	//returns true if the cpu's hand contains a card that makes the following statement true: (c.toString().equals(s))
+    //returns true if the cpu's hand contains a card that makes the following statement true: (c.toString().equals(s))
     private boolean playerHasCard(String s)
     {
 		for(Card c: playerHand)
