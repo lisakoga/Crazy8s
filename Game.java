@@ -1,38 +1,47 @@
 import java.util.ArrayList;
-public class Game {
-    private Deck deck;
+public class Game 
+{
+    private static Deck deck;
     protected ArrayList<Card> playerHand;
-    protected ArrayList<Card> compHand;
+    protected static ArrayList<Card> compHand;
 
-    public Game() {
+    public Game() 
+    {
         playerHand = new ArrayList<Card>();
         compHand = new ArrayList<Card>();
         deck = new Deck();
     }
 
-    public ArrayList<Card> getCompHand() {
+    public static ArrayList<Card> getCompHand() 
+    {
         return compHand;
     }
 
-    public ArrayList<Card> getHand() {
+    public ArrayList<Card> getHand() 
+    {
         return playerHand;
     }
-    public void drawToHand(){
+    public void drawToPlayer()
+    {
         playerHand.add(deck.DrawValueofCard());
     }
-    public void drawToComputer(){
+    public static void drawToComputer()
+    {
         compHand.add(deck.DrawValueofCard());
     }
-    public Card getTop(){
+    public Card getTop()
+    {
         return deck.getTopUsed();
     }
- 
-    public Deck getDeck() {
+    public static Deck getDeck() 
+    {
         return deck;
     }
 
-    public void deal(int n) {
-        for (int i = 0; i < n; i++) {
+    public void deal(int n) 
+    {
+        for (int i = 0; i < n; i++) 
+        {
             playerHand.add(deck.DrawValueofCard());
             compHand.add(deck.DrawValueofCard());
         }
